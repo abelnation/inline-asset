@@ -1,0 +1,10 @@
+#!/bin/bash
+
+CUR_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+PATH=${PATH}:${CUR_DIR}/../node_modules/.bin
+
+MOCHA_RESULTS_FILENAME="${CUR_DIR}/../mocha-test.html"
+MOCHA_FLAGS="--reporter min --timeout=4000 --check-leaks"
+MOCHA_FILES="${CUR_DIR}/../test/*.js"
+
+script -q /dev/null mocha ${MOCHA_FLAGS} ${MOCHA_FILES} | ansi-html > ${MOCHA_RESULTS_FILENAME}

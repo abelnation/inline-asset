@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# ensure all subshells are kills on termination
+trap "kill -TERM 0" INT
+
+CUR_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+PATH=${PATH}:${CUR_DIR}/../node_modules/.bin
+
+MOCHA_RESULTS_FILENAME="${CUR_DIR}/../mocha-test.html"
+
+(
+    echo "Watching project files..."
+    cd ${CUR_DIR}/..
+    watch-run -p './lib/**.js,./test/**' 'npm run lint && npm test'
+) &
+
+sleep 1
+(
+    echo "Starting live-reload server..."
+    livereload ${MOCHA_RESULTS_FILENAME}
+) &
+
+wait
+echo "exiting"
+
+# continue running until sub-shells finish or we are interrupted
+# wait

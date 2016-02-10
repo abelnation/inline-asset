@@ -1,0 +1,17 @@
+{
+    "env": {
+        "node": true,
+        "mocha": true
+    },
+    "ecmaFeatures": {},
+    "globals": {},
+
+    // To give you an idea how to override rule options:
+    "rules": {
+        "semi": [2, "never"],
+        "quotes": [2, "single", "avoid-escape"],
+        "no-unused-vars": [2, {"vars": "all", "args": "none"}],
+        "eqeqeq": [2, "smart"],
+        "key-spacing": [2, {"beforeColon": false, "afterColon": true}]
+    }
+}

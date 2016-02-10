@@ -1,0 +1,47 @@
+{
+  "name": "inline-asset",
+  "version": "0.0.1",
+  "description": "Inline css/img/js directly into html files",
+  "main": "lib/inline-asset.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "lint": "eslint lib/**.js",
+    "test": "script -q test.out mocha --reporter min --timeout=4000 --check-leaks ./test/*.js | ansi-html > mocha-test.html",
+    "watch": "watch-run -p './lib/*.js' npm run lint && npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/abelnation/inline-asset.git"
+  },
+  "keywords": [
+    "inline",
+    "asset",
+    "html",
+    "grunt",
+    "gruntinline"
+  ],
+  "author": "Abel Allison <abel.allison@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/abelnation/inline-asset/issues"
+  },
+  "homepage": "https://github.com/abelnation/inline-asset",
+  "dependencies": {
+    "clean-css": "^3.4.9",
+    "cssmin": "^0.4.3",
+    "datauri": "^1.0.1",
+    "event-stream": "^3.3.2",
+    "lodash": "^4.3.0",
+    "uglify-js": "^2.6.1"
+  },
+  "devDependencies": {
+    "ansi-html-stream": "0.0.3",
+    "chai": "^3.5.0",
+    "eslint": "^1.10.3",
+    "livereload": "^0.4.1",
+    "mocha": "^2.4.5",
+    "watch-run": "^1.2.4"
+  }
+}
